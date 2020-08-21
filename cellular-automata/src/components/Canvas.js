@@ -17,9 +17,10 @@ function Canvas(props) {
 
 		// if (canvas.getContext) {
 			const ctx = canvas.getContext('2d');
+			let square = 50;
 
 			ctx.fillStyle = 'rgb(200, 0, 0)';
-			ctx.fillRect(100, 100, 50, 50); // Relative to the size of the canvas. 
+			ctx.fillRect(100, 100, 50, square); // Relative to the size of the canvas. 
 
 			ctx.fillStyle = 'rgba(0, 0, 200, 0.5)';
 			ctx.fillRect(30, 30, 50, 50);
