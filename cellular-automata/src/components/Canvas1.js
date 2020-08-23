@@ -61,26 +61,26 @@ function Canvas(props) {
 				instance.clearRect(0, 0, canvas.width, canvas.height); // Clears previously animated objects for animation. 
 				
 				circle.update()
-				// Text in the canvas. 
-				// instance.fillStyle = 'black';
-				// instance.font = '20px Arial';
-				// instance.fillText('Cellular Automata', 10, 20)
+				Text in the canvas. 
+				instance.fillStyle = 'black';
+				instance.font = '20px Arial';
+				instance.fillText('Cellular Automata', 10, 20)
 
-				// // Animation of the circle. 
-				// instance.beginPath();
-				// instance.arc(x, y, radius, 0, Math.PI * 2, false);
-				// instance.strokeStyle = 'green';
-				// instance.stroke();
+				// Animation of the circle. 
+				instance.beginPath();
+				instance.arc(x, y, radius, 0, Math.PI * 2, false);
+				instance.strokeStyle = 'green';
+				instance.stroke();
 
-				// if(x + radius > canvas.width || x - radius < 0) {
-				// 	horVelocity = -horVelocity;
-				// }
+				if(x + radius > canvas.width || x - radius < 0) {
+					horVelocity = -horVelocity;
+				}
 
-				// if(y + radius > canvas.height || y - radius < 0) {
-				// 	vertVelocity = -vertVelocity;
-				// }
-				// x += horVelocity;
-				// y += vertVelocity;
+				if(y + radius > canvas.height || y - radius < 0) {
+					vertVelocity = -vertVelocity;
+				}
+				x += horVelocity;
+				y += vertVelocity;
 			}
 
 			// animate()			

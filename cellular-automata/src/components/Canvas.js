@@ -21,10 +21,32 @@ function Canvas(props) {
 				.map(() => new Array(rows).fill(null)
 					.map(() => Math.floor(Math.random() * 2)));
 
+			for(let col = 0; col < grid.length; col++) {
+			for(let row = 0; row < grid[col].length; row++) {
+				const cell = grid[col][row];
+
+				ctx.beginPath();
+				ctx.rect(col * resolution, row * resolution, resolution, resolution);
+				ctx.fillStyle = cell ? 'black' : 'white';
+				ctx.fill();
+				ctx.stroke();
+			}
+
 		}
+
+		// Screen buffer per MVP. 
+		let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+		let screenBuffer = imageData.data;
 
 		const grid = buildGrid();
 		console.log(grid)
+
+		function nextGen(grid) {
+			const nextGen = grid.map(arr => [...arr]);
+			console.log('next generation', nextGen)
+		}
+
+		nextGen()
 
 		for(let col = 0; col < grid.length; col++) {
 			for(let row = 0; row < grid[col].length; row++) {
