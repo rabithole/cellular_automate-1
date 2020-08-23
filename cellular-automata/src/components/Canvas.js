@@ -20,18 +20,6 @@ function Canvas(props) {
 			return new Array(cols).fill(null)
 				.map(() => new Array(rows).fill(null)
 					.map(() => Math.floor(Math.random() * 2)));
-
-			for(let col = 0; col < grid.length; col++) {
-			for(let row = 0; row < grid[col].length; row++) {
-				const cell = grid[col][row];
-
-				ctx.beginPath();
-				ctx.rect(col * resolution, row * resolution, resolution, resolution);
-				ctx.fillStyle = cell ? 'black' : 'white';
-				ctx.fill();
-				ctx.stroke();
-			}
-
 		}
 
 		// Screen buffer per MVP. 
@@ -39,14 +27,29 @@ function Canvas(props) {
 		let screenBuffer = imageData.data;
 
 		const grid = buildGrid();
-		console.log(grid)
 
 		function nextGen(grid) {
 			const nextGen = grid.map(arr => [...arr]);
-			console.log('next generation', nextGen)
+
+			for(let col = 0; col < grid.length; col++) {
+					for(let row = 0; row < grid[col].length; row++) {
+						const cell = grid[col][row];
+						const numNeighbors = 0;
+						for(let i = -1; i < 2; i++) {
+							for(let j = -1; j < 2; j++) {
+								if(i === 0 && j === 0) {
+									continue;
+								}
+
+							const currentNeighbor = grid[col + i][col + j];
+							numNeighbors += currentNeighbor
+						}
+					}
+				}
+			}
 		}
 
-		nextGen()
+		nextGen(grid)
 
 		for(let col = 0; col < grid.length; col++) {
 			for(let row = 0; row < grid[col].length; row++) {
