@@ -7,11 +7,7 @@ function App() {
 
   return (
     <div className="App">
-      	<header className="App-header">
-        	<h1>Cellular Automate</h1>
-    	</header>
-
-        <Canvas/>
+        <Canvas width='100vh'/>
     </div>
   );
 }

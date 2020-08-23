@@ -9,12 +9,16 @@ function Canvas(props) {
 	function draw() {
 
 		const canvas = document.getElementById('canvas');
+		const canText = canvas.getContext('2d');
+		// canText.font = '20px Arial';
+		// canText.fillText('Cellular Automata', 5, 0)
 		
-		canvas.height = window.innerWidth;
-		canvas.width = window.innerHeight;
+		// canvas.height = window.innerWidth;
+		// canvas.width = window.innerHeight;
 
 		// if (canvas.getContext) {
 			const instance = canvas.getContext('2d');
+
 			let square = 50;
 
 			// Square
@@ -42,25 +46,32 @@ function Canvas(props) {
 			// 	instance.stroke()
 			// }
 			
-			let x = 200;
-			let velocity = 5;
-			let radius = 30
+			let x = 100; // horizontal coordinate in pixels
+			let y = 75; // vertical coordinate in pixels
+			let velocity = 2;
+			let radius = 20
 			function animate() {
 				requestAnimationFrame(animate);
-				instance.clearRect(0, 0, window.innerWidth, window.innerHeight);
+				instance.clearRect(0, 0, canvas.width, canvas.height);
+				
+				// Text in the canvas. 
+				instance.fillStyle = 'black';
+				instance.font = '20px Arial';
+				instance.fillText('Cellular Automata', 10, 20)
 
+				// Animation of the circle. 
 				instance.beginPath();
-				instance.arc(x, 200, radius, 0, Math.PI * 2, false);
+				instance.arc(x, y, radius, 0, Math.PI * 2, false);
 				instance.strokeStyle = 'green';
 				instance.stroke();
 
-				if (x + radius > window.innerWidth || x - radius < 0) {
+				if (x + radius > canvas.width || x - radius < 0) {
 					velocity = -velocity;
 				}
 				x += velocity;
 			}
 
-			// animate()
+			animate()
 			
 
 			console.log(canvas.getContext)
