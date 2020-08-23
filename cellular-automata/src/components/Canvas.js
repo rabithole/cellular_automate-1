@@ -26,7 +26,14 @@ function Canvas(props) {
 		let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		let screenBuffer = imageData.data;
 
-		const grid = buildGrid();
+		let grid = buildGrid();
+
+		requestAnimationFrame(update);
+
+		function update() {
+			grid = nextGen(grid);
+			requestAnimationFrame(update);
+		}
 
 		function nextGen(grid) {
 			const nextGen = grid.map(arr => [...arr]);
@@ -40,16 +47,27 @@ function Canvas(props) {
 								if(i === 0 && j === 0) {
 									continue;
 								}
-
-							const currentNeighbor = grid[col + i][col + j];
-							numNeighbors += currentNeighbor
+								
+					// Stopped at 13:11
+							const currentNeighbor = grid[col + i][row + j];
+							numNeighbors += currentNeighbor;
 						}
 					}
+					// rules
+					if(cell === 1 && numNeighbors < 2) {
+						nextGen[col][row] = 0;
+					} else if (cell === 1 && numNeighbors > 3) {
+						nextGen[col][row] = 0;
+					} else if (cell === 0 && numNeighbors === 3) {
+						nextGen[col][row] = 1;
+					}
+
 				}
 			}
+			return nextGen;
 		}
 
-		nextGen(grid)
+		// nextGen(grid)
 
 		for(let col = 0; col < grid.length; col++) {
 			for(let row = 0; row < grid[col].length; row++) {
