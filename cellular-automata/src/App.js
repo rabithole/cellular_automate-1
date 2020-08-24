@@ -1,5 +1,7 @@
 import React from 'react';
 import Canvas from './components/Canvas';
+
+import AnimationTiming from './components/AnimationTiming';
 import './App.css';
 
 function App() {
@@ -7,7 +9,9 @@ function App() {
 
   return (
     <div className="App">
-        <Canvas width='100vh'/>
+    	<header id='App-header'>Cellular Automata</header>
+        <Canvas/>
+        {/*<AnimationTiming/>*/}
     </div>
   );
 }
