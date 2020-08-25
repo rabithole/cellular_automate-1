@@ -1,17 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
-const Canvas_lambda = (props) => {
-    const canvasRef = useRef(null)
+const CanvasLambda = (props) => {
+    const canvasReference = useRef(null)
 
-    // ...
+    useEffect(() => {
+    	// const canvas = document.querySelector('canvas')
+    	// const canvas = canvasReference.current;
+    	// const context = canvas.getContext('2d');
+    }, [])
 
-    /**
-     * Render the canvas
-     */
+
     
     return (
-    	<canvas ref={canvasRef} width={props.width} height={props.height} />
+    	<div>
+	    	<canvas 
+	    		ref={canvasReference}
+	    	/>
+    	</div>
     );
 }
 
-export default Canvas_lambda;
+export default CanvasLambda;

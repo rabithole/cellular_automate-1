@@ -1,6 +1,6 @@
 import React from 'react';
 // import Canvas from './components/Canvas';
-import FrameAnimation from './components/OnAnimateFrame';
+import FrameAnimation from './components/FrameAnimation';
 
 import './App.css';
 
