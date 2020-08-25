@@ -5,7 +5,8 @@ function Canvas(props) {
 	console.log(canvasRef.current)
 
 	useEffect(() => {
-		draw();
+		// draw();
+		requestAnimationFrame(draw);
 	})
 
 	function draw() {
@@ -41,7 +42,7 @@ function Canvas(props) {
 		function update() {
 			console.log('update')
 			grid = nextGen(grid);
-			requestAnimationFrame(update);
+			// requestAnimationFrame(update);
 		}
 		// update();
 
