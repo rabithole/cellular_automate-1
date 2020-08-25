@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 
 function Canvas(props) {
-	const canvasRef = useRef(null);
-	console.log(canvasRef)
+	const canvasRef = useRef(100);
+	console.log(canvasRef.current)
 
 	useEffect(() => {
 		draw();

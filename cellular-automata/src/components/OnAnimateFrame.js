@@ -1,13 +1,14 @@
 import React from 'react';
+import Canvas_lambda from './Canvas_lambda';
 
-function AnimationTiming() {
 
+function FrameAnimation() {
     let prevTimestamp = null;
 
-    function onAnimFrame(timestamp) {
+    function OnAnimFrame(timestamp) {
 
         // Request another animation frame for the future
-        requestAnimationFrame(onAnimFrame);
+        requestAnimationFrame(OnAnimFrame);
 
         // If we haven't yet stored the previous time, fake it
         if (prevTimestamp === null) {
@@ -25,13 +26,15 @@ function AnimationTiming() {
         // TODO: Do animation stuff to the canvas
     }
 
-    // Request the first animation frame to kick things off
-    requestAnimationFrame(onAnimFrame);
+// Request the first animation frame to kick things off
+    requestAnimationFrame(OnAnimFrame);
 
-    return (
-        <h1>AnimationTiming</h1>
-    )
+return (
+        <div>
+            <Canvas_lambda/>
+        </div>
+    );
 }
+    
 
-
-export default AnimationTiming;
+export default FrameAnimation;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Canvas from './components/Canvas';
+import FrameAnimation from './components/OnAnimateFrame';
 
-import AnimationTiming from './components/AnimationTiming';
 import './App.css';
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
     	<header id='App-header'>Cellular Automata</header>
         <Canvas/>
         {/*<AnimationTiming/>*/}
+        <FrameAnimation/>
     </div>
   );
 }
