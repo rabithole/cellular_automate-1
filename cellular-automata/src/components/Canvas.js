@@ -42,7 +42,7 @@ function Canvas(props) {
 		function update() {
 			console.log('update')
 			grid = nextGen(grid);
-			// requestAnimationFrame(update);
+			requestAnimationFrame(update);
 		}
 		// update();
 

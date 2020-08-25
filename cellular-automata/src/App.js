@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
     	<header id='App-header'>Cellular Automata</header>
-        <Canvas/>
+        {/*<Canvas/>*/}
         {/*<AnimationTiming/>*/}
         <FrameAnimation/>
     </div>
