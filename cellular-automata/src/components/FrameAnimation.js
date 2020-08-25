@@ -1,23 +1,21 @@
 import React, { useRef, useEffect } from 'react';
-// import CanvasLambda from './Canvas_lambda';
-
 
 function FrameAnimation() {
+    let prevTimestamp = null;
 
     function OnAnimFrame(timestamp) {
 //         // Request another animation frame for the future
 
-// requestAnimationFrame(OnAnimFrame);
 //         // If we haven't yet stored the previous time, fake it
-//         if (prevTimestamp === null) {
-//             prevTimestamp = timestamp - 30; // milliseconds
-//         }
+        if (prevTimestamp === null) {
+            prevTimestamp = timestamp - 30; // milliseconds
+        }
 //         // Compute how long it took between frames
-//         const elapsed = timestamp - prevTimestamp
+        const elapsed = timestamp - prevTimestamp
 //         // Remember this for next frame
-//         prevTimestamp = timestamp;
+        prevTimestamp = timestamp;
 
-//         console.log(`Current time: ${timestamp} ms, Elapsed: ${elapsed} ms`);
+        console.log(`Current time: ${timestamp} ms, Elapsed: ${elapsed} ms`);
 
 
 
@@ -44,9 +42,9 @@ function FrameAnimation() {
 
         let grid = buildGrid();
         // grid = nextGen(grid);
-        // render(grid);
+        render(grid);
        
-        // requestAnimationFrame(update);
+// requestAnimationFrame(update);
 
         function update() {
             grid = nextGen(grid);
@@ -105,12 +103,9 @@ function FrameAnimation() {
                 }
             }
         }
-
-
     }
 
 // Request the first animation frame to kick things off
-    // OnAnimFrame();
     requestAnimationFrame(OnAnimFrame)
 
 return (

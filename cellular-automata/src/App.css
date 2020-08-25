@@ -20,8 +20,7 @@ canvas {
   background-color: grey;
   margin: 2%;
   border: 20px solid red;
-  /*height: 1000px;*/
-  /*width: 90%;*/
+  box-shadow: 8px 8px 25px black;
 }
 
 #App-header {
@@ -34,5 +33,28 @@ canvas {
   font-size: calc(50px + 2vmin);
   color: white;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 2% auto;
+}
+
+button {
+  margin: 2%;
+  padding: .8% 3%;
+  letter-spacing: 10px;
+  box-shadow: 5px 5px 15px black;
+  font-weight: 900;
+  font: normal 900 20px Georgia;
+  background-color: lightblue;
+  border-radius: 3px;
+}
+
+#gens {
+  background-color: lightblue;
+  padding: 0 20px;
+  box-shadow: 5px 5px 15px black;
+  border: 2px solid black;
+  border-radius: 2px;
+  width: 60%;
+  text-align: left;
+  margin-left: 10%;
+  font-family: Georgia;
 }
