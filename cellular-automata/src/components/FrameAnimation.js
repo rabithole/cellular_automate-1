@@ -1,26 +1,16 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
+import Gens from './Gens';
 
 function FrameAnimation() {
-    let prevTimestamp = null;
-
-    function OnAnimFrame(timestamp) {
-//         // Request another animation frame for the future
-
-//         // If we haven't yet stored the previous time, fake it
-        if (prevTimestamp === null) {
-            prevTimestamp = timestamp - 30; // milliseconds
-        }
-//         // Compute how long it took between frames
-        const elapsed = timestamp - prevTimestamp
-//         // Remember this for next frame
-        prevTimestamp = timestamp;
-
-        console.log(`Current time: ${timestamp} ms, Elapsed: ${elapsed} ms`);
-
-
+    let generation = 0;
+    // const generation = useRef(0)
+    // const canvasRef = useRef(null)
+    // console.log(canvasRef)
+    function OnAnimFrame(timestamp) {  
 
         // Canvas animation...........................................
         const canvas = document.querySelector('canvas');
+        // const canvas = canvasRef.current;
         const context = canvas.getContext('2d');
 
         // Sets the size of the canvas. 
@@ -44,7 +34,7 @@ function FrameAnimation() {
         // grid = nextGen(grid);
         render(grid);
        
-// requestAnimationFrame(update);
+requestAnimationFrame(update);        
 
         function update() {
             grid = nextGen(grid);
@@ -53,9 +43,9 @@ function FrameAnimation() {
         }
 
         function nextGen(grid) {
-            console.log('grid')
+            // console.log('grid')
             const nextGen = grid.map(arr => [...arr]); // buffer
-            console.log('Next Gen', nextGen)
+            // console.log('Next Gen', nextGen)
 
             for(let col = 0; col < grid.length; col++) {
                     for(let row = 0; row < grid[col].length; row++) {
@@ -110,7 +100,12 @@ function FrameAnimation() {
 
 return (
         <div>
+            <p>{generation}</p>
+            <Gens
+                gen={generation}
+            />
             <canvas></canvas>
+            
         </div>
     );
 }

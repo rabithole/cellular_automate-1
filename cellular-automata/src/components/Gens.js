@@ -1,11 +1,10 @@
 import React from 'react';
 
-function Gens() {
-
+function Gens(props) {
 
   return (
     <div id="gens">
-    	<h1>Generation Number:</h1>
+    	<h1>Generation Number: {props.gen}</h1>
     </div>
   );
 }
