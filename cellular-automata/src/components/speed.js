@@ -2,24 +2,31 @@ import React, { useState } from 'react';
 
 
 function Speed(props) {
-  const [speed, setRate] = useState()
+  const [speed, setRate] = useState(0)
 
   const handleChange = e => {
-    setRate({speed, 
-        [e.target.name]: e.target.value,
-    })
+    setRate(
+        e.target.value
+    )
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(speed)
+    props.setSpeed(speed)
   }
 
   return (
-    <div id='speed'>
+    <form onSubmit={handleSubmit} id='speed'>
       <h1>Speed:</h1>
       <input
         type='number'
         name='speed'
         placeholder='Speed in seconds'
-        value={speed}
+        // value={speed}
+        onChange={handleChange}
       />
-    </div>
+    </form>
   );
 }
 

@@ -5,6 +5,8 @@ import Speed from './speed';
 const CanvasLambda = (props) => {
     const canvasReference = useRef(null)
     let [gen, setGen] = useState(0);
+    const [speed, setSpeed] = useState(500)
+    console.log(speed)
 
     useEffect(() => {
     	const canvas = canvasReference.current;
@@ -28,7 +30,7 @@ const CanvasLambda = (props) => {
     	render(grid);
 
     	// Calls back update to get it going. 
-		requestAnimationFrame(update);
+		// requestAnimationFrame(update);
 
 		// Generation counter, calls nextGen again, re-renders and calls requestAnimationFrame again. 
     	 function update() {
@@ -37,8 +39,19 @@ const CanvasLambda = (props) => {
 	            grid = nextGen(grid);
 	            render(grid);
 	            requestAnimationFrame(update); // Keeps the ball rolling...
-    	 	},750)
+	    console.log(speed)
+    	 	}, speed)
+	 	// console.log(speed)
         }
+
+        // setTimeout(update, 50)
+
+        // function update() {
+        // 	setGen(gen += 1);
+        //     grid = nextGen(grid);
+        //     render(grid);
+        //     requestAnimationFrame(setTimeout); // Keeps the ball rolling...
+        // }
 
 
     	function nextGen(grid) {
@@ -98,7 +111,9 @@ const CanvasLambda = (props) => {
     		<Gens 
     			gen={gen}
     		/>
-    		<Speed/>
+    		<Speed
+    			setSpeed={setSpeed}
+    		/>
 	    	<canvas 
 	    		ref={canvasReference}
 	    	/>
