@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Gens from './Gens';
+import Speed from './speed';
 
 const CanvasLambda = (props) => {
     const canvasReference = useRef(null)
@@ -36,7 +37,7 @@ const CanvasLambda = (props) => {
 	            grid = nextGen(grid);
 	            render(grid);
 	            requestAnimationFrame(update); // Keeps the ball rolling...
-    	 	},1000)
+    	 	},750)
         }
 
 
@@ -97,6 +98,7 @@ const CanvasLambda = (props) => {
     		<Gens 
     			gen={gen}
     		/>
+    		<Speed/>
 	    	<canvas 
 	    		ref={canvasReference}
 	    	/>
