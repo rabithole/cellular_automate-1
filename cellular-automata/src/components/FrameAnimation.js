@@ -1,8 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import Gens from './Gens';
 
 function FrameAnimation() {
-    let generation = 0;
+    // let [gen, setGen] = useState(0) 
+    let generation = useRef(0);
+    console.log(generation.current)
+    // const canvasRef = useRef(null);
+    useEffect(() => {
+        
+    }, [])
+    // let generation = 0;
+    // let [gen, setGen] = useState(0) 
     // const generation = useRef(0)
     // const canvasRef = useRef(null)
     // console.log(canvasRef)
@@ -34,9 +42,12 @@ function FrameAnimation() {
         // grid = nextGen(grid);
         render(grid);
        
-requestAnimationFrame(update);        
+// requestAnimationFrame(update);        
 
         function update() {
+            // setGen(gen += 1);
+            generation.current += 1;
+            console.log(generation.current)
             grid = nextGen(grid);
             render(grid);
             requestAnimationFrame(update);
@@ -100,7 +111,6 @@ requestAnimationFrame(update);
 
 return (
         <div>
-            <p>{generation}</p>
             <Gens
                 gen={generation}
             />

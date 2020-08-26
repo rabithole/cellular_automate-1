@@ -1,6 +1,6 @@
 import React from 'react';
-// import Canvas from './components/Canvas';
-import FrameAnimation from './components/FrameAnimation';
+import CanvasLambda from './components/Canvas_lambda';
+// import FrameAnimation from './components/FrameAnimation';
 import Buttons from './components/Buttons';
 
 import './App.css';
@@ -11,9 +11,9 @@ function App(props) {
     <div className="App">
     	<header id='App-header'>Cellular Automata</header>
     
-        {/*<Canvas/>*/}
+        <CanvasLambda/>
         {/*<AnimationTiming/>*/}
-        {<FrameAnimation/>}
+        {/*<FrameAnimation/>*/}
         <Buttons/>
     </div>
   );
