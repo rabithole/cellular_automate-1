@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
+import { Context } from '../context/Context';
 import Gens from './Gens';
 import Speed from './speed';
 
@@ -6,11 +7,11 @@ const CanvasLambda = (props) => {
     const canvasReference = useRef(null)
     let [gen, setGen] = useState(0);
     const [speed, setSpeed] = useState(500)
-    console.log(speed)
+    const { animation } = useContext(Context);
+    console.log(animation)
 
     useEffect(() => {
     	const canvas = canvasReference.current;
-    	console.log(canvas)
     	const context = canvas.getContext('2d');
 
     	const resolution = 10;
@@ -28,8 +29,13 @@ const CanvasLambda = (props) => {
 
 	    let grid = buildGrid();
     	render(grid);
-
+console.log(animation)
     	// Calls back update to get it going. 
+    	if(animation) {
+    		requestAnimationFrame(update)
+    	} else {
+    		cancelAnimationFrame(requestAnimationFrame(update))
+    	}
 		// requestAnimationFrame(update);
 
 		// Generation counter, calls nextGen again, re-renders and calls requestAnimationFrame again. 
@@ -40,7 +46,7 @@ const CanvasLambda = (props) => {
 	            render(grid);
 	            requestAnimationFrame(update); // Keeps the ball rolling...
 	    console.log(speed)
-    	 	}, speed)
+    	 	}, 100)
 	 	// console.log(speed)
         }
 
@@ -104,7 +110,8 @@ const CanvasLambda = (props) => {
 		            }
 		        }
 		    }
-    }, [])
+    }, [animation])
+    console.log(animation)
     
     return (
     	<div>
