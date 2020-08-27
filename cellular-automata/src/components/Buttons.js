@@ -7,10 +7,16 @@ function Buttons(props) {
 	function Start() {
 		setAnimation(true);
 	}
+
+	function Stop() {
+		console.log('Stop')
+		setAnimation(false);
+	}
+
 	return (
 	<div className="buttons">
 		<button onClick={Start}>START</button>
-		<button onClick={props.stop}>STOP</button>
+		<button onClick={Stop}>STOP</button>
 		<button>PAUSE</button>
 	</div>
 	);
